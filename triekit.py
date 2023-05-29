@@ -1,23 +1,17 @@
 class Trie:
     class TrieNode:
-        # TrieNode is internal.  Feel free to add
-        # to the argument list for its init function.
-        # add to this init function whatever data members you like
         def __init__(self, char):
             self.children = {}  # a dictionary of char-node pairs
             self.char = char
             self.is_end_of_word = False
             self.counter = 1
 
-    # You cannot alter the prototype of this __init__ function
-    # However you can add whatever data members you need
     def __init__(self):
         self.root = self.TrieNode('')
         self.words_with_prefix = []
 
-        # function adds word to the Trie
-
     def insert(self, word):
+        """function adds word to the Trie"""
         node = self.root
 
         # iterate through each letter in word
@@ -48,8 +42,9 @@ class Trie:
             # keep looking for words with the updated
             self.get_prefix(child, prefix + child.char)
 
-    # function searches for word and its count in the Trie, returns True if found, False otherwise
+    #
     def search(self, word):
+        """function searches for word and its count in the Trie, returns True if found, False otherwise"""
         node = self.root
 
         # loop through each char in word
